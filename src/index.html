@@ -12,17 +12,35 @@
 </head>
 
 <body>
-    <header>
-        <a href="/">Все об уходе за животными</a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+    <header class="site-header">
+        <a class="site-header__brand" href="/">Лого</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link site-nav__link--сta" href="#contacts">Связаться</a>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
+        <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+        <script defer>
+            const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+            const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            // Автовыбор: системная тема или сохранённый выбор пользователя
+            if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)) {
+                document.body.classList.add('theme-dark');
+                btn?.setAttribute('aria-pressed', 'true');
+            }
+            // Переключение по кнопке с сохранением в localStorage
+            btn?.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('theme-dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+                localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+            });
+        </script>
         <h1>Добро пожаловать на наш сайт!</h1>
         <section id="services">
             <h2>Наши услуги</h2>
@@ -43,5 +61,22 @@
         <p>&copy; 2025 Все об уходе за животными. Все права защищены.</p>
         <p>Телефон: 8 800 555-35-35</p>
     </footer>
+    <!-- width/height уменьшают «скачок» макета (CLS); alt обязателен -->
+    <img src="img/card-640.jpg" alt="Проект: макет мобильного приложения" width="640" height="360" loading="lazy"
+        decoding="async">
+
+    <!-- Браузер сам выбирает лучший ресурс по ширине контейнера -->
+    <img src="img/card-640.jpg" srcset="img/card-640.jpg 640w, img/card-960.jpg 960w, img/card-1280.jpg
+1280w" sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px" alt="Проект: макет мобильного приложения"
+        loading="lazy">
+
+    <!-- Добавьте субтитры через <track> (WebVTT); poster — превью-кадр -->
+    <video class="media" controls preload="metadata" playsinline width="960" height="540" poster="video/poster.jpg">
+        <source src="video/teaser-1080.mp4" type="video/mp4">
+        <source src="video/teaser-720.webm" type="video/webm">
+        <track kind="captions" srclang="ru" src="video/captions-ru.vtt" label="Русские субтитры" default>
+        Ваш браузер не поддерживает видео.
+    </video>
 </body>>
+
 </html>
