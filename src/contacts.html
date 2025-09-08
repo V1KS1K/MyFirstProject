@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viweport" conect="width=device-width, initial-scale=1.0">
     <title>Информация</title>
     <meta name="description" content="Вещи дял ухода за животными">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <header>
-        <a href="/">Все </a>
-         <nav>
+        <a href="/">Все об уходе за животными </a>
+        <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="about.html">О нас</a></li>
             </ul>
-         </nav>
+        </nav>
     </header>
     <main>
         <h1>Контактная информация о нашей сети</h1>
@@ -31,5 +35,54 @@
     <footer>
         <p>&copy; 2025 Все об уходе за животными. Все права защищены.</p>
     </footer>
-</body>
+    <button id="openDialog" type="button">Написать нам</button>
+    <dialog id="contactDialog" aria-labelledby="dialogTitle">
+        <h2 id="dialogTitle">Обратная связь</h2>
+        <form id="contactForm" method="dialog" novalidate>
+            <label for="name">Имя</label>
+            <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" required autocomplete="email">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="phoneHelp"
+                placeholder="+7 (___) ___-__-__" required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$">
+            <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+            <label for="date">Дата</label>
+            <input id="date" name="date" type="date">
+            <label for="topic">Тема</label>
+            <select id="topic" name="topic" required>
+                <option value="">Выберите тему</option>
+                <option>Вопрос</option>
+                <option>Заказ</option>
+            </select>
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <div class="form-actions">
+                <button type="button" id="closeDialog">Закрыть</button>
+                <button id="openDialog" type="button">Написать нам</button>
+                <dialog id="contactDialog" aria-labelledby="dialogTitle">
+                    <h2 id="dialogTitle">Обратная связь</h2>
+                    <form id="contactForm" method="dialog" novalidate>
+                        <label for="name">Имя</label>
+                        <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name"> <br>
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" required autocomplete="email"> <br>
+                        <label for="phone">Телефон</label>
+                        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" 
+                            aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__" required
+                            pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"> <br>
+                        <small id="phoneHelp">Формат: +7 (900) 000-00-00</small>
+                        <label for="date">Дата</label>
+                        <input id="date" name="date" type="date"> <br>
+                        <label for="topic">Тема</label>
+                        <select id="topic" name="topic" required>
+                            <option value="">Выберите тему</option>
+                            <option>Вопрос</option>
+                            <option>Заказ</option>
+                        </select>
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <div class="form-actions">
+                            <button type="button" id="closeDialog">Закрыть</button>
+    </body>
 </html>
