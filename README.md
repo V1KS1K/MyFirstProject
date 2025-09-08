@@ -2,4 +2,4 @@
 ## Проект
 Этот репозиторий является каркасом для будущего веб-приложения.
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://v1ks1k.github.io/MyFirstProject/)
+- [Публичная страница на GitHub Pages](https://v1ks1k.github.io/MyFirstProject/src/index.html)
